@@ -1,11 +1,12 @@
 import streamlit as st
 import pandas as pd
-import joblib
+import cloudpickle
 
 st.set_page_config(page_title="Fraud Detection App", layout="wide")
 
-# Load the saved model
-model = joblib.load("fraud_model.pkl")
+# Load the saved model (using cloudpickle)
+with open("fraud_model1.pkl", "rb") as f:
+    model = cloudpickle.load(f)
 
 st.title("🚨 Fraud Detection App")
 
